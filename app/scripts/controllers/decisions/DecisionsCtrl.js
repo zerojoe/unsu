@@ -19,7 +19,7 @@
 
 
   var parse = function(entry) {
-    console.log('decisions', entry);
+    // console.log('decisions', entry);
     return {
         id : entry['gsx$id']['$t'],
         status : entry['gsx$status']['$t'],

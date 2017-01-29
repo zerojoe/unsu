@@ -13,7 +13,7 @@ angular.module('unionApp')
 	var url = 'https://spreadsheets.google.com/feeds/list/15Cm7FSQYQEsltLORHJUIMhMnlNp4iUV5Vq4inhLPXG8/od6/public/values?alt=json';
 
   	$scope.data = [];
-  	$scope.sortType     = 'name'; // set the default sort type
+  	$scope.sortType     = 'lastname'; // set the default sort type
 	$scope.sortReverse  = false;  // set the default sort order
 	$scope.searchQuery  = '';     // set the default search/filter term
    
