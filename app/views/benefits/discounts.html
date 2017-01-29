@@ -1,0 +1,82 @@
+<div class="container-fluid" ng-controller="DiscountsCtrl">
+	<h1><i class="fa fa-group"></i> Your Discounts</h1>
+
+<!-- 	<nav class="navbar-default col-sm-2 navbar-static-side no-padding">
+		<div id="sidebar-collapse">
+			<ul class="nav" id="side-menu">
+				<li>Entry One</li>
+				<li>Entry Two</li>
+			</ul>
+		</div>
+	</nav> -->
+
+
+
+<div class="sidebar-nav">
+    <div class="well col-sm-2">
+		<ul class="nav nav-list"> 
+		  <li class="nav-header"><b>Categories</b></li>        
+		  <li ng-repeat="category in categories | orderBy:'category'"><a ng-click="setCategory(category)">{{category}}</a></li>
+   		</ul>
+	</div>
+</div>
+
+<div class="col-sm-10">
+	<div class="container-fluid">    
+		<form>
+			<div class="form-group">
+				<div class="input-group">
+					<div class="input-group-addon"><i class="fa fa-search"></i></div>
+					<input type="text" class="form-control" placeholder="Search" ng-model="searchQuery">
+				</div>      
+			</div>
+		</form>
+
+		<table class="table table-bordered table-striped">
+
+			<thead>
+				<tr>
+					<td></td>
+					<td>
+						<a ng-click="sortType = 'lastname'; sortReverse = !sortReverse">
+							Title
+							<span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-up"></span>
+						</a>
+					</td>
+					<td>
+						<a ng-click="sortType = 'companyName'; sortReverse = !sortReverse">
+							Company Name
+							<span ng-show="sortType == 'companyName' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'companyName' && sortReverse" class="fa fa-caret-up"></span>
+						</a>
+					</td>
+					<td>
+						<a ng-click="sortType = 'type'; sortReverse = !sortReverse">
+							Type of Discount
+							<span ng-show="sortType == 'type' && !sortReverse" class="fa fa-caret-down"></span>
+							<span ng-show="sortType == 'type' && sortReverse" class="fa fa-caret-up"></span>
+						</a>
+					</td>
+					<td>Description</td>
+					<td>Conditions</td>
+					<td>Valid From / Until</td>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr ng-repeat="entry in data | orderBy:sortType:sortReverse | filter:searchQuery">
+					<td>
+						<span ng-if="entry.newEntry == 'x'"><i class="label label-info">NEW</i> </span>
+					</td>
+					<td>{{entry.title}}</td>
+					<td><a ng-href="{{entry.url}}">{{entry.companyName}}</a></td>
+					<td>{{entry.type}}</td>
+					<td>{{entry.description}}</td>
+					<td>{{entry.conditions}}</td>
+					<td>{{entry.validFrom | date}} <span ng-if="entry.validUntil"> - {{entry.validUntil}}</span></td>
+				</tr>
+			</tbody>
+		</table>  
+	</div>
+</div>

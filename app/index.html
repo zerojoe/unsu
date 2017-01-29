@@ -24,7 +24,7 @@
     <!-- Add your site or application content here -->
     <div class="header">
       <div class="navbar navbar-default" role="navigation">
-        <div class="container">
+        <div class="container-fluid">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
               <span class="sr-only">Toggle navigation</span>
@@ -39,8 +39,8 @@
           <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="HeaderCtrl">
 
             <ul class="nav navbar-nav">
-              <li ng-class="{active :isActive('/')}"><a href="#/"><i class="fa fa-home"></i> Home</a></li>
-              <li ng-class="{active :isActive('/discounts')}">
+              <li ng-class="{active :isActive('/')}"><a ng-href="#/"><i class="fa fa-home"></i> Home</a></li>
+              <li class="dropdown"ng-class="{active :isActive('/discounts')}">
                 <a class="dropdown-toggle" data-toggle="dropdown">Your Benefits
                   <span class="caret"></span></a>
                   <ul class="dropdown-menu">
@@ -58,13 +58,13 @@
       </div>
     </div>
 
-    <div class="container">
+    <div class="container-fluid">
     <div ng-view=""></div>
     </div>
 
     <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-copyright-mark"></span> UNSU-Vienna 2016</p>
+      <div class="container-fluid">
+        <p align="center"><span class="glyphicon glyphicon-copyright-mark"></span> UNSU-Vienna 2016</p>
       </div>
     </div>
 
@@ -104,8 +104,7 @@
         <script src="scripts/controllers/HeaderCtrl.js"></script>
         <script src="scripts/controllers/representatives/RepsCtrl.js"></script>
         <script src="scripts/controllers/decisions/DecisionsCtrl.js"></script>
-
-
+        <script src="scripts/controllers/benefits/DiscountsCtrl.js"></script>
         <!-- endbuild -->
 </body>
 </html>

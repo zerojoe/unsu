@@ -46,6 +46,11 @@ angular
         controller: 'DecisionsCtrl',
         controllerAs: 'decs'
       })
+          .when('/discounts', {
+        templateUrl: 'views/benefits/discounts.html',
+        controller: '',
+        controllerAs: 'decs'
+      })
       .otherwise({
         redirectTo: '/'
       });

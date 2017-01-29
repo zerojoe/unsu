@@ -1,53 +1,49 @@
-<h1><i class="fa fa-group"></i> Your Representatives</h1>
-<body>
+<div class="container" ng-controller="RepsCtrl">
+	<h1><i class="fa fa-group"></i> Your Representatives</h1>
+	<form>
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon"><i class="fa fa-search"></i></div>
+				<input type="text" class="form-control" placeholder="Search" ng-model="searchQuery">
+			</div>      
+		</div>
+	</form>
 
-<div class="container" ng-app="sortApp" ng-controller="RepsCtrl">
-    
-  <form>
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-        <input type="text" class="form-control" placeholder="Search" ng-model="searchQuery">
-      </div>      
-    </div>
-  </form>
-  
-  <table class="table table-bordered table-striped">
-    
-    <thead>
-      <tr>
-      	<td>
-          <a ng-click="sortType = 'lastname'; sortReverse = !sortReverse">
-            Name
-            <span ng-show="sortType == 'lastname' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'lastname' && sortReverse" class="fa fa-caret-up"></span>
-          </a>
-        </td>
-        <td>
-          <a ng-click="sortType = 'role'; sortReverse = !sortReverse">
-            Role
-            <span ng-show="sortType == 'role' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'role' && sortReverse" class="fa fa-caret-up"></span>
-          </a>
-        </td>
-        <td>
-          <a ng-click="sortType = 'electoralUnit'; sortReverse = !sortReverse">
-          Electoral Unit
-            <span ng-show="sortType == 'electoralUnit' && !sortReverse" class="fa fa-caret-down"></span>
-            <span ng-show="sortType == 'electoralUnit' && sortReverse" class="fa fa-caret-up"></span>
-          </a>
-        </td>
-      </tr>
-    </thead>
-    
-    <tbody>
-      <tr ng-repeat="rep in data | orderBy:sortType:sortReverse | filter:searchQuery">
-      	 <td><b>{{rep.lastname}}</b> {{rep.firstname}} <span ng-if="rep.execFunction"class="label label-info">{{rep.execFunction}}</span></td>
-        <td>{{rep.role}}</td>
-        <td>{{rep.electoralUnit}}</td>
-      </tr>
-    </tbody>
-  </table>  
+	<table class="table table-bordered table-striped">
+
+			<tr>
+		<thead>
+				<td>
+					<a ng-click="sortType = 'lastname'; sortReverse = !sortReverse">
+						Name
+						<span ng-show="sortType == 'lastname' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'lastname' && sortReverse" class="fa fa-caret-up"></span>
+					</a>
+				</td>
+				<td>
+					<a ng-click="sortType = 'role'; sortReverse = !sortReverse">
+						Role
+						<span ng-show="sortType == 'role' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'role' && sortReverse" class="fa fa-caret-up"></span>
+					</a>
+				</td>
+				<td>
+					<a ng-click="sortType = 'electoralUnit'; sortReverse = !sortReverse">
+						Electoral Unit
+						<span ng-show="sortType == 'electoralUnit' && !sortReverse" class="fa fa-caret-down"></span>
+						<span ng-show="sortType == 'electoralUnit' && sortReverse" class="fa fa-caret-up"></span>
+					</a>
+				</td>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr ng-repeat="rep in data | orderBy:sortType:sortReverse | filter:searchQuery">
+				<td><b>{{rep.lastname}}</b> {{rep.firstname}} <span ng-if="rep.execFunction"class="label label-info">{{rep.execFunction}}</span></td>
+				<td>{{rep.role}}</td>
+				<td>{{rep.electoralUnit}}</td>
+			</tr>
+		</tbody>
+	</table>  
 </div>
-</body>
 <!-- <pre>{{data | json}}</pre> -->
