@@ -41,6 +41,11 @@ angular
         controller: 'RepsCtrl',
         controllerAs: 'reps'
       })
+        .when('/decisions', {
+        templateUrl: 'views/decisions/decisions.html',
+        controller: 'DecisionsCtrl',
+        controllerAs: 'decs'
+      })
       .otherwise({
         redirectTo: '/'
       });

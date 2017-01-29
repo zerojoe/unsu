@@ -9,6 +9,7 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -35,12 +36,13 @@
             <a class="navbar-brand" href="#/">UNSU - Staff Union Vienna</a>
           </div>
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+          <div class="collapse navbar-collapse" id="js-navbar-collapse" ng-controller="HeaderCtrl">
 
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/reps">Your Staff Representatives</a></li>
+              <li ng-class="{active :isActive('/')}"><a href="#/"><i class="fa fa-home"></i> Home</a></li>
+              <li ng-class="{active :isActive('/about')}"><a ng-href="#/about"><i class="fa fa-info"></i> About</a></li>
+              <li ng-class="{active :isActive('/reps')}"><a ng-href="#/reps"><i class="fa fa-group"></i> Your Staff Representatives</a></li>
+              <li ng-class="{active :isActive('/decisions')}"><a ng-href="#/decisions"><i class="fa fa-tasks"></i> Proposals and Decisions</a></li>
             </ul>
           </div>
         </div>
@@ -53,7 +55,7 @@
 
     <div class="footer">
       <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-copyright-mark"></span> UNSU-Vienna 2016</p>
       </div>
     </div>
 
@@ -90,7 +92,10 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/HeaderCtrl.js"></script>
         <script src="scripts/controllers/representatives/RepsCtrl.js"></script>
+        <script src="scripts/controllers/decisions/DecisionsCtrl.js"></script>
+
 
         <!-- endbuild -->
 </body>
