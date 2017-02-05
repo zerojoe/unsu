@@ -1,17 +1,6 @@
 <div class="container-fluid" ng-controller="DiscountsCtrl">
 	<h1><i class="fa fa-group"></i> Your Discounts</h1>
 
-<!-- 	<nav class="navbar-default col-sm-2 navbar-static-side no-padding">
-		<div id="sidebar-collapse">
-			<ul class="nav" id="side-menu">
-				<li>Entry One</li>
-				<li>Entry Two</li>
-			</ul>
-		</div>
-	</nav> -->
-
-
-
 <div class="sidebar-nav">
     <div class="well col-sm-2">
 		<ul class="nav nav-list"> 
@@ -28,6 +17,7 @@
 				<div class="input-group">
 					<div class="input-group-addon"><i class="fa fa-search"></i></div>
 					<input type="text" class="form-control" placeholder="Search" ng-model="searchQuery">
+					<div class="input-group-addon" ng-click="setCategory('')"><i class="glyphicon glyphicon-remove"></i></div>
 				</div>      
 			</div>
 		</form>
@@ -59,8 +49,7 @@
 						</a>
 					</td>
 					<td>Description</td>
-					<td>Conditions</td>
-					<td>Valid From / Until</td>
+					<td>Attachment</td>					
 				</tr>
 			</thead>
 
@@ -69,14 +58,15 @@
 					<td>
 						<span ng-if="entry.newEntry == 'x'"><i class="label label-info">NEW</i> </span>
 					</td>
-					<td>{{entry.title}}</td>
+					<td><a ng-click="showDetails(entry)">{{entry.title}}</a></td>
 					<td><a ng-href="{{entry.url}}">{{entry.companyName}}</a></td>
 					<td>{{entry.type}}</td>
 					<td>{{entry.description}}</td>
-					<td>{{entry.conditions}}</td>
-					<td>{{entry.validFrom | date}} <span ng-if="entry.validUntil"> - {{entry.validUntil}}</span></td>
+					<td><i class="fa fa-paperclip" ng-if="entry.file" ng-click="openAttachment(entry.file)"></i></td>				
 				</tr>
 			</tbody>
 		</table>  
 	</div>
 </div>
+
+<!-- <pre>{{data |json}}</pre> -->

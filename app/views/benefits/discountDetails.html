@@ -1,0 +1,58 @@
+<div class="container" ng-controller="DiscountsCtrl">
+	<a class="btn btn-default" ng-href="#/discounts" role="button"><i class="fa fa-arrow-circle-o-left"></i> Back</a>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+				<h1><div class="label label-info">{{selectedEntry.category}}</div> {{selectedEntry.companyName}} <small>{{selectedEntry.title}}</small></h1>
+			</div>
+			<div class="jumbotron">
+				<div class="container">
+					<p>{{selectedEntry.description}}</p>
+					<p ng-if="selectedEntry.file"><a class="btn btn-primary btn-lg" ng-click="openAttachment(selectedEntry.file)" role="button"><i class="fa fa-paperclip"></i> More Details</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Address and Contact Details</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li ng-if="selectedEntry.address">
+					{{selectedEntry.address}}
+				</li>
+				<li ng-if="selectedEntry.contact">{{selectedEntry.contact}}</li>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Type and Conditions</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li ng-if="selectedEntry.type">{{selectedEntry.type}}</li>
+						<li ng-if="selectedEntry.conditions">{{selectedEntry.conditions}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Validity</h3>
+				</div>
+				<div class="panel-body">
+					<ul>
+						<li ng-if="selectedEntry.validFrom">From: {{selectedEntry.validFrom}}</li>
+						<li ng-if="selectedEntry.validUntil">Until: {{selectedEntry.validUntil}}</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>	
+</div> 

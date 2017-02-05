@@ -49,7 +49,12 @@ angular
           .when('/discounts', {
         templateUrl: 'views/benefits/discounts.html',
         controller: '',
-        controllerAs: 'decs'
+        controllerAs: 'disc'
+      })
+          .when('/discountdetails', {
+        templateUrl: 'views/benefits/discountDetails.html',
+        controller: '',
+        controllerAs: 'disc'
       })
       .otherwise({
         redirectTo: '/'

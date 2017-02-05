@@ -17,3 +17,7 @@ angular.module('unionApp')
       'Karma'
     ];
   });
+
+function onlyUnique(value, index, self) { 
+  return self.indexOf(value) === index;
+}
