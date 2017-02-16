@@ -5,7 +5,7 @@
     <div class="well col-sm-2">
 		<ul class="nav nav-list"> 
 		  <li class="nav-header"><b>Categories</b></li>        
-		  <li ng-repeat="category in categories | orderBy:'category'"><a ng-click="setCategory(category)">{{category}}</a></li>
+		  <li ng-repeat="category in categories | orderBy:'category'"><a href='javascript:void(0);' ng-click="setCategory(category)">{{category}}</a></li>
    		</ul>
 	</div>
 </div>
